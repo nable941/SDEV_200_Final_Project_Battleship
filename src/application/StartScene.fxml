@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StarterControler">
+   <children>
+      <Label layoutX="87.0" layoutY="48.0" text="Enter your name and select the difficulty">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfName" layoutX="226.0" layoutY="101.0" promptText="Player 1" />
+      <Button fx:id="btnVeryEasy" layoutX="135.0" layoutY="143.0" mnemonicParsing="false" onAction="#setDifficulty" prefHeight="25.0" prefWidth="69.0" text="Very Easy" />
+      <Button fx:id="btnEasy" layoutX="135.0" layoutY="176.0" mnemonicParsing="false" onAction="#setDifficulty" prefHeight="25.0" prefWidth="69.0" text="Easy" />
+      <Button fx:id="btnNormal" layoutX="135.0" layoutY="211.0" mnemonicParsing="false" onAction="#setDifficulty" prefHeight="25.0" prefWidth="69.0" text="Normal" />
+      <Button fx:id="btnHard" layoutX="135.0" layoutY="244.0" mnemonicParsing="false" onAction="#setDifficulty" prefHeight="25.0" prefWidth="69.0" text="Hard" />
+      <Button fx:id="btnVeryHard" layoutX="135.0" layoutY="280.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#setDifficulty" text="Very Hard" />
+      <Label layoutX="215.0" layoutY="147.0" text="Carrier ship with 5 health and 3 guns" />
+      <Label layoutX="215.0" layoutY="182.0" prefHeight="17.0" prefWidth="251.0" text="Battleship with 4 heath and 2 guns" />
+      <Label layoutX="215.0" layoutY="215.0" prefHeight="17.0" prefWidth="251.0" text="Crusier with 3 health and 2 guns" />
+      <Label layoutX="215.0" layoutY="251.0" prefHeight="17.0" prefWidth="251.0" text="Submarine with 3 health and 1 gun" />
+      <Label layoutX="215.0" layoutY="280.0" prefHeight="17.0" prefWidth="251.0" text="Destroyer with 2 health and 1 gun" />
+   </children>
+</AnchorPane>
