@@ -15,22 +15,14 @@ This application must include at a minimum:
 ## About the game
 Based on the classic pencil and paper game and later adapted into a board game by Milton Bradley, this is a ship seek and destroy game using grids and guesses to locate and destroy your opponents ships.
 
-## Getting Started
-
 ### Dependencies
+Java
 
-
-
-### Installing
-
-
-
-### Executing program
-
+JavaFX
 
 
 ## Help
-
+For the UML documentation and application screenshots see the Documents folder
 
 
 ## Authors
@@ -40,13 +32,13 @@ Nathan Able
 
 
 ## Version History
-
+1.0
 
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the LICENSE.txt file for details
 
-## Acknowledgments
+
 
 
