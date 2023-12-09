@@ -22,8 +22,11 @@ JavaFX
 
 
 ## Help
-For the UML documentation and application screenshots see the Documents folder
+For the UML documentation and application screenshots see the Documents folder or click the direct link.
 
+[UML](https://github.com/nable941/SDEV_200_Final_Project_Battleship/blob/main/Documents/Able_Nathan_Final_Project_UML.pdf)
+
+[Screenshots](https://github.com/nable941/SDEV_200_Final_Project_Battleship/blob/main/Documents/Application%20Screenshots.docx)
 
 ## Authors
 
