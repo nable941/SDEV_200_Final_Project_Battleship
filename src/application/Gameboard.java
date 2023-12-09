@@ -1,3 +1,9 @@
+/**
+ * This class implements the gameboard that operates as the playing field for the game.
+ * @author Nathan Able
+ * @version 1.0
+ * 
+ */
 package application;
 
 public class Gameboard {
@@ -5,10 +11,17 @@ public class Gameboard {
 	private char[][] gameboard;
 	
 	//Constructors
+	/**
+	 * Default constructor with a build size of 11
+	 */
 	public Gameboard() {
 		this(11);
 	}
-	//This is a future use constructor for flex goals
+	
+	/**
+	 * This is a future use constructor for flex goals and is not currently in use
+	 * @param size sets the size of the gameboard
+	 */
 	public Gameboard(int size) {
 		if (size < 11) {
 			throw new IllegalArgumentException("The gameboard size must be 10x10 or greater.");
@@ -18,6 +31,10 @@ public class Gameboard {
 	}
 	
 	//Generate base gameboard data
+	/**
+	 * This sets initial data for the gameboard. Is only functional for the current 10x10 version
+	 * @param size of the gameboard object
+	 */
     private void initializeArray(int size) {
     	gameboard = new char[size][size];
     	for (int i = 0; i < size; i++) {
@@ -57,22 +74,40 @@ public class Gameboard {
         }
     }
 	//Getters & Setters
+    /**
+     * Get size of board
+     * @return Size of the board
+     */
 	public int getGridsize() {
 		return gridSize;
 	}
-
+	/**
+	 * Set gameboard size
+	 * @param gridsize Size of the gameboard
+	 */
 	public void setGridsize(int gridsize) {
 		this.gridSize = gridsize;
 	}
-
+	/**
+	 * Get the gameboard object
+	 * @return gameboard object
+	 */
 	public char[][] getGameboard() {
 		return gameboard;
 	}
-
+	/**
+	 * Set Gameboard object
+	 * @param gameboard
+	 */
 	public void setGameboard(char[][] gameboard) {
 		this.gameboard = gameboard;
 	}
-	
+	/**
+	 * Get the value of an individual coordinate of the gameboard
+	 * @param row gameboard row
+	 * @param col gameboard column
+	 * @return Value of the coordinate
+	 */
 	public char getCoordinateValue(int row, int col) {
 		if (row <0 ||
 				row > gameboard.length ||
@@ -82,7 +117,12 @@ public class Gameboard {
 			}
 		return gameboard[row][col];
 	}
-	
+	/**
+	 * Set the value of the coordinate
+	 * @param row gameboard row
+	 * @param col gameboard column
+	 * @param state new value of the coordinate
+	 */
 	public void setCoordinateValue(int row, int col, char state) {
 		if (row <0 ||
 			row > gameboard.length ||
@@ -92,7 +132,10 @@ public class Gameboard {
 		}
 		gameboard[row][col] = state;
 	}
-	
+	/**
+	 * Create a string version of the array in a printable format
+	 * @return String of the gameboard array
+	 */
 	@Override
     public String toString() {
     	StringBuilder result = new StringBuilder();
@@ -112,7 +155,11 @@ public class Gameboard {
         return result.toString();
     }
 	
-	//Check if entered coordinate is a valid coordinate for the gameboard
+	/**
+	 * Check if entered coordinate is a valid coordinate for the gameboard
+	 * @param coordinates String representation of a column and row
+	 * @return Boolean value if the coordinates are valid or not
+	 */
 	public static boolean coordinatesValid(String coordinates) {
 		int col = convertColumn(coordinates);
 		int row = convertRow(coordinates);
@@ -123,12 +170,22 @@ public class Gameboard {
         }
 		
 	}
-	//Extract letter from coordinate string and convert it to the corresponding column index
+	
+	/**
+	 * Extract letter from coordinate string and convert it to the corresponding column index
+	 * @param coordinate 
+	 * @return Index of the coordinate that the letter represents
+	 */
 	public static int convertColumn(String coordinate) {
 		char columnLetter = Character.toLowerCase(coordinate.charAt(0));
 		return columnLetter -  'a' +1;
 	}
-	//Extract number from coordinate string and convert it to the corresponding row index
+	
+	/**
+	 * Extract number from coordinate string and convert it to the corresponding row index
+	 * @param coordinate String representation of the column and row in letter number format
+	 * @return Index of the coordinate that the number of the coordinate represents
+	 */
 	public static int convertRow(String coordinate) {
 		char row = coordinate.charAt(1);
 		int intValue = Character.getNumericValue(row)+1;

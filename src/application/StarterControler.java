@@ -1,3 +1,8 @@
+/**
+ * Controller class for the document {@code StartScene.fxml}
+ * @author Nathan Able
+ * @version 1.0
+ */
 package application;
 
 import java.io.IOException;
@@ -15,7 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class StarterControler {
-	
+
 	@FXML
 	TextField tfName;
 	@FXML
@@ -34,9 +39,15 @@ public class StarterControler {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-
+	/**
+	 * Handles the event when any of the difficulty buttons are clicked. 
+	 * @param event (btnVeryEasy || btnEasy || btnNormal || btnHard || btnVeryHard) clicked
+	 * @throws IOException
+	 * 
+	 */
 	@FXML
 	public void setDifficulty(ActionEvent event)throws IOException {
+
 		Button clickedButton = (Button)event.getSource();
 		String difficulty = clickedButton.getId();
 		String name = tfName.getText();

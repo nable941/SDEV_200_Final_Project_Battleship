@@ -1,3 +1,8 @@
+/**
+ * Controller class for the document {@code GameScene.fxml}
+ * @author Nathan Able
+ * @version 1.0
+ */
 package application;
 
 import javafx.event.ActionEvent;
@@ -31,19 +36,32 @@ public class GameControler {
 	private Player player1;
 	private Player player2;
 	private String coordinate;
-	
 	String[] attack = new String[3];
 
-	
+	/**
+	 * Sets the Player objects to the FXML document to allow the objects to be passed
+	 * from the prior document
+	 * @see {@link Player}
+	 * @param p1 Player object 1
+	 * @param p2 Player object 2
+	 */
 	public void setPlayers(Player p1, Player p2) {
 		player1 = p1;
 		player2 = p2;
 		
 	}
+	/**
+	 * Updates the gameboard label to display the current Player gameboards in a sise by side view
+	 * @param map String representation of the Gameboard shipTracker object and Gameboard attackTracker object  
+	 */
 	public void setMap(String map) {
 		lblGameboard.setText(map);
 	}
-	
+	/**
+	 * Updates the visibility of the tfAttack and lblAttack based on the attacks per turn 
+	 * determined when the difficulty is selected
+	 * @param attacks
+	 */
 	public void setAttacks(int attacks) {
 		if(attacks >1) {
 			tfAttack2.setVisible(true);
@@ -54,7 +72,10 @@ public class GameControler {
 			lblAttack3.setVisible(true);
 		}
 	}
-	
+	/**
+	 * Controls the events after the attack button is clicked 
+	 * @param event btnAttack clicked
+	 */
 	@FXML
 	public void attack(ActionEvent event) {
 		Alert player2Turn = new Alert(AlertType.INFORMATION);
@@ -75,7 +96,9 @@ public class GameControler {
 		}
 		for (int i = 0; i<= player1.getGuns()-1; i++) {
 			isValid = Gameboard.coordinatesValid(attack[i]);
+			if(isValid) {
 			player1.attackOpponent(attack[i], player2);
+			}
 		}
 		setMap(player1.displayGameboards());
 		if (player1.getScore()==player2.getSize()) {

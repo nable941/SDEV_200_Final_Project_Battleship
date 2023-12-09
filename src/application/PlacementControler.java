@@ -1,3 +1,8 @@
+/**
+ * Controller class for the document {@code PlacementScene.fxml}
+ * @author Nathan Able
+ * @version 1.0
+ */
 package application;
 
 import java.io.IOException;
@@ -43,6 +48,46 @@ public class PlacementControler {
 	private Stage stage;
 	private Scene scene;
 	
+	/**
+	 * Updates the gameboard label and the ship size label
+	 * @param map String representation of the Gameboard object shipTracker 
+	 * @param size Integer value of the ship size
+	 */
+	public void setMap(Gameboard map, int size) {
+		String placementMap = map.toString();
+		
+		lblPlayerBoard.setText(placementMap);
+		lblShipSize.setText("You ship size is " + size);
+	}
+	/**
+	 * Sets the Player objects for the FXML document so that they can be passed from the prior document
+	 * @see {@link Player}
+	 * @param p1 Player object
+	 * @param p2 Player object
+	 */
+	public void setPlayers(Player p1, Player p2) {
+		this.player1 = p1;
+		this.player2 = p2;
+	}
+	/**
+	 * Randomly place the ship for the computer on their Gameboard object shipTracker
+	 */
+	public void setComputer() {
+		isValid = false;
+		
+		//Randomly place player2 ship
+		do {
+			computerStart = Player.generateRandomCoordinate();
+			computerOrientation = Player.generateRandomOneTwo() == 1 ? true : false;
+			isValid = Player.willFit(computerStart, player2.getSize(), computerOrientation);		
+		}while(!isValid);
+		player2.placeShip(computerStart, player2.getSize(), computerOrientation, player2.getShipTracker());
+	}
+	/**
+	 * Handles the event after the Place button is clicked 
+	 * @param event btnPlace clicked
+	 * @throws IOException
+	 */
 	@FXML
 	public void placeShip(ActionEvent event) throws IOException {
 		isValid = false;
@@ -93,28 +138,5 @@ public class PlacementControler {
 		
 		
 	}
-	
-	public void setMap(Gameboard map, int size) {
-		String placementMap = map.toString();
-		
-		lblPlayerBoard.setText(placementMap);
-		lblShipSize.setText("You ship size is " + size);
-	}
-	
-	public void setPlayers(Player p1, Player p2) {
-		this.player1 = p1;
-		this.player2 = p2;
-	}
-	
-	public void setComputer() {
-		isValid = false;
-		
-		//Randomly place player2 ship
-		do {
-			computerStart = Player.generateRandomCoordinate();
-			computerOrientation = Player.generateRandomOneTwo() == 1 ? true : false;
-			isValid = Player.willFit(computerStart, player2.getSize(), computerOrientation);		
-		}while(!isValid);
-		player2.placeShip(computerStart, player2.getSize(), computerOrientation, player2.getShipTracker());
-	}
+
 }
